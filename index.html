@@ -1,0 +1,746 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VolunteerConnect — Outreach Framework</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Space+Mono:wght@400;700&family=Lora:ital,wght@0,400;0,600;1,400&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- ── NAVBAR ── -->
+    <nav id="navbar">
+      <div class="nav-inner">
+        <div class="logo" onclick="showPage('home')">
+          <div class="logo-icon">🌿</div>
+          <span>VolunteerConnect</span>
+        </div>
+        <div class="nav-links" id="navLinks">
+          <button onclick="showPage('home')" class="nav-btn">Home</button>
+          <button onclick="showPage('opportunities')" class="nav-btn">
+            Opportunities
+          </button>
+          <button onclick="showPage('dashboard')" class="nav-btn">
+            Dashboard
+          </button>
+          <button onclick="showPage('community')" class="nav-btn">
+            Community
+          </button>
+          <button onclick="showPage('about')" class="nav-btn">About</button>
+          <button onclick="showPage('signup')" class="nav-cta">
+            Join Now →
+          </button>
+        </div>
+        <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+          ☰
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <div class="mobile-menu" id="mobileMenu">
+        <button
+          onclick="
+            showPage('home');
+            closeMenu();
+          "
+        >
+          Home
+        </button>
+        <button
+          onclick="
+            showPage('opportunities');
+            closeMenu();
+          "
+        >
+          Opportunities
+        </button>
+        <button
+          onclick="
+            showPage('dashboard');
+            closeMenu();
+          "
+        >
+          Dashboard
+        </button>
+        <button
+          onclick="
+            showPage('community');
+            closeMenu();
+          "
+        >
+          Community
+        </button>
+        <button
+          onclick="
+            showPage('about');
+            closeMenu();
+          "
+        >
+          About
+        </button>
+        <button
+          onclick="
+            showPage('signup');
+            closeMenu();
+          "
+          class="mobile-cta"
+        >
+          Join Now →
+        </button>
+      </div>
+    </nav>
+
+    <!-- ── PAGES ── -->
+    <main id="app">
+      <!-- HOME PAGE -->
+      <div id="page-home" class="page active">
+        <!-- Hero -->
+        <section class="hero">
+          <div class="hero-grid"></div>
+          <div class="orb orb1"></div>
+          <div class="orb orb2"></div>
+          <div class="hero-content">
+            <div class="live-pill">
+              <span class="pulse-dot"></span>
+              <span id="volunteerCount">0</span> VOLUNTEERS ACTIVE NOW
+            </div>
+            <h1>
+              Connect. <span class="highlight">Serve.</span><br />Impact Lives.
+            </h1>
+            <p class="hero-sub">
+              India's most powerful volunteer outreach framework — connecting
+              passionate people with causes that matter.
+            </p>
+            <div class="hero-btns">
+              <button class="btn-primary" onclick="showPage('signup')">
+                Become a Volunteer →
+              </button>
+              <button class="btn-outline" onclick="showPage('opportunities')">
+                Browse Opportunities
+              </button>
+            </div>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-icon">👥</div>
+                <div class="stat-val">12,400+</div>
+                <div class="stat-lbl">VOLUNTEERS</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">🤝</div>
+                <div class="stat-val">340+</div>
+                <div class="stat-lbl">NGOS</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">⏰</div>
+                <div class="stat-val">58K+</div>
+                <div class="stat-lbl">HOURS</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-icon">📍</div>
+                <div class="stat-val">24</div>
+                <div class="stat-lbl">CITIES</div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="how-section">
+          <h2>How It <span class="highlight">Works</span></h2>
+          <p class="section-sub">Three simple steps to start creating impact</p>
+          <div class="steps-grid">
+            <div class="step-card">
+              <div class="step-num">01</div>
+              <div class="step-icon">📝</div>
+              <h3>Create Profile</h3>
+              <p>
+                Tell us your skills, causes you care about, and availability.
+                Takes just 3 minutes.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">02</div>
+              <div class="step-icon">🎯</div>
+              <h3>Get Matched</h3>
+              <p>
+                Our smart algorithm finds the most relevant opportunities in
+                your city and beyond.
+              </p>
+            </div>
+            <div class="step-card">
+              <div class="step-num">03</div>
+              <div class="step-icon">🌟</div>
+              <h3>Create Impact</h3>
+              <p>
+                Attend events, track your hours, earn certificates, and grow
+                your impact score.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="cta-section">
+          <h2>Ready to Make a <span class="highlight">Difference?</span></h2>
+          <p>Join thousands of volunteers changing lives across India</p>
+          <button class="btn-primary large" onclick="showPage('signup')">
+            Start Volunteering Today →
+          </button>
+        </section>
+      </div>
+
+      <!-- OPPORTUNITIES PAGE -->
+      <div id="page-opportunities" class="page">
+        <div class="page-header">
+          <h2>Find Your <span class="highlight">Purpose</span></h2>
+          <p>Discover opportunities matched to your skills and passion</p>
+        </div>
+        <div class="page-body">
+          <input
+            type="text"
+            id="searchInput"
+            class="search-input"
+            placeholder="🔍  Search opportunities..."
+            oninput="filterOpps()"
+          />
+          <div class="filter-pills" id="filterPills">
+            <button class="pill active" onclick="setFilter('All', this)">
+              All
+            </button>
+            <button class="pill" onclick="setFilter('Environment', this)">
+              Environment
+            </button>
+            <button class="pill" onclick="setFilter('Education', this)">
+              Education
+            </button>
+            <button class="pill" onclick="setFilter('Healthcare', this)">
+              Healthcare
+            </button>
+            <button class="pill" onclick="setFilter('Social Welfare', this)">
+              Social Welfare
+            </button>
+          </div>
+          <div class="cards-grid" id="oppsGrid"></div>
+        </div>
+      </div>
+
+      <!-- DASHBOARD PAGE -->
+      <div id="page-dashboard" class="page">
+        <div class="page-body">
+          <!-- Profile -->
+          <div class="profile-card">
+            <div class="avatar large-avatar">RK</div>
+            <div class="profile-info">
+              <h2>Raj Kumar</h2>
+              <p class="profile-role">LEVEL 4 · ENVIRONMENT CHAMPION · PUNE</p>
+              <div class="badge-row">
+                <span class="badge lime">🌿 Environment</span>
+                <span class="badge sky">💻 Education</span>
+                <span class="badge amber">⭐ Verified</span>
+              </div>
+            </div>
+            <div class="profile-stats">
+              <div class="pstat">
+                <div class="pstat-val">18</div>
+                <div class="pstat-lbl">HOURS</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">4</div>
+                <div class="pstat-lbl">EVENTS</div>
+              </div>
+              <div class="pstat">
+                <div class="pstat-val">847</div>
+                <div class="pstat-lbl">PTS</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tabs -->
+          <div class="tabs" id="dashTabs">
+            <button class="tab active" onclick="switchTab('overview', this)">
+              Overview
+            </button>
+            <button class="tab" onclick="switchTab('activity', this)">
+              Activity
+            </button>
+            <button class="tab" onclick="switchTab('achievements', this)">
+              Achievements
+            </button>
+            <button class="tab" onclick="switchTab('certificates', this)">
+              Certificates
+            </button>
+          </div>
+
+          <!-- Overview Tab -->
+          <div id="tab-overview" class="tab-content active">
+            <div class="dash-grid">
+              <div class="dash-card">
+                <h3>Monthly Impact</h3>
+                <div class="bar-chart" id="barChart"></div>
+              </div>
+              <div class="dash-card next-event">
+                <h3>Next Event</h3>
+                <div style="font-size: 28px; margin-bottom: 8px">🌱</div>
+                <p class="event-title">Forest Restoration Drive</p>
+                <p class="event-meta">FEB 22 · PUNE</p>
+                <div class="registered-badge">✓ REGISTERED</div>
+              </div>
+              <div class="dash-card full-width">
+                <h3>Skill Distribution</h3>
+                <div class="skills-list">
+                  <div class="skill-row">
+                    <span>Environmental Action</span
+                    ><span class="skill-pct lime">75%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill lime" style="width: 75%"></div>
+                  </div>
+                  <div class="skill-row">
+                    <span>Teaching & Mentoring</span
+                    ><span class="skill-pct mint">55%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill mint" style="width: 55%"></div>
+                  </div>
+                  <div class="skill-row">
+                    <span>Community Organizing</span
+                    ><span class="skill-pct amber">40%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill amber" style="width: 40%"></div>
+                  </div>
+                  <div class="skill-row">
+                    <span>Healthcare Support</span
+                    ><span class="skill-pct sky">20%</span>
+                  </div>
+                  <div class="progress-bar">
+                    <div class="progress-fill sky" style="width: 20%"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Activity Tab -->
+          <div id="tab-activity" class="tab-content">
+            <div class="dash-card">
+              <h3>Activity History</h3>
+              <div class="activity-list">
+                <div class="activity-item">
+                  <div class="act-dot"></div>
+                  <div class="act-info">
+                    <p>Beach Cleanup Drive</p>
+                    <span>FEB 10</span>
+                  </div>
+                  <span class="badge lime">5 HRS</span>
+                </div>
+                <div class="activity-item">
+                  <div class="act-dot"></div>
+                  <div class="act-info">
+                    <p>School Tutoring Session</p>
+                    <span>FEB 5</span>
+                  </div>
+                  <span class="badge lime">3 HRS</span>
+                </div>
+                <div class="activity-item">
+                  <div class="act-dot"></div>
+                  <div class="act-info">
+                    <p>Tree Plantation Drive</p>
+                    <span>JAN 28</span>
+                  </div>
+                  <span class="badge lime">6 HRS</span>
+                </div>
+                <div class="activity-item">
+                  <div class="act-dot"></div>
+                  <div class="act-info">
+                    <p>Medical Camp Support</p>
+                    <span>JAN 15</span>
+                  </div>
+                  <span class="badge lime">4 HRS</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Achievements Tab -->
+          <div id="tab-achievements" class="tab-content">
+            <div class="achievements-grid">
+              <div class="achieve-card earned">
+                <div class="achieve-icon">🌟</div>
+                <h4>First Step</h4>
+                <p>Completed first event</p>
+                <span class="badge lime">EARNED</span>
+              </div>
+              <div class="achieve-card earned">
+                <div class="achieve-icon">🌿</div>
+                <h4>Green Hero</h4>
+                <p>5 environment events</p>
+                <span class="badge lime">EARNED</span>
+              </div>
+              <div class="achieve-card earned">
+                <div class="achieve-icon">📚</div>
+                <h4>Educator</h4>
+                <p>10 hrs of teaching</p>
+                <span class="badge lime">EARNED</span>
+              </div>
+              <div class="achieve-card locked">
+                <div class="achieve-icon">🔥</div>
+                <h4>100-Hour Club</h4>
+                <p>Log 100 hours</p>
+              </div>
+              <div class="achieve-card locked">
+                <div class="achieve-icon">🏆</div>
+                <h4>Top Volunteer</h4>
+                <p>Top 5% this month</p>
+              </div>
+              <div class="achieve-card locked">
+                <div class="achieve-icon">🌍</div>
+                <h4>Globe Trotter</h4>
+                <p>Volunteer in 3 cities</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Certificates Tab -->
+          <div id="tab-certificates" class="tab-content">
+            <div class="certs-grid">
+              <div class="cert-card">
+                <p class="cert-label">CERTIFICATE OF APPRECIATION</p>
+                <h3>Volunteer Excellence Award</h3>
+                <p>GreenEarth NGO</p>
+                <span>Jan 2026 · 18 Hours</span
+                ><button class="btn-ghost">⬇ Download PDF</button>
+              </div>
+              <div class="cert-card">
+                <p class="cert-label">CERTIFICATE OF APPRECIATION</p>
+                <h3>Community Impact Certificate</h3>
+                <p>TechBridge Foundation</p>
+                <span>Dec 2025 · 12 Hours</span
+                ><button class="btn-ghost">⬇ Download PDF</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- COMMUNITY PAGE -->
+      <div id="page-community" class="page">
+        <div class="page-body">
+          <h2 class="page-title">Community Hub</h2>
+          <p class="page-desc">
+            Share stories, find teammates, and celebrate impact together.
+          </p>
+
+          <!-- Post box -->
+          <div class="post-box">
+            <div class="avatar sky-av">YO</div>
+            <div class="post-input-wrap">
+              <textarea
+                id="postInput"
+                placeholder="Share your volunteer story..."
+              ></textarea>
+              <button class="btn-primary small" onclick="addPost()">
+                Post →
+              </button>
+            </div>
+          </div>
+
+          <!-- Posts feed -->
+          <div id="postsFeed"></div>
+
+          <!-- Testimonials -->
+          <h3 class="section-title">Success Stories</h3>
+          <div class="testimonials-grid">
+            <div class="testi-card">
+              <div class="testi-top">
+                <div class="avatar mint-av">PS</div>
+                <div>
+                  <p class="testi-name">Priya Sharma</p>
+                  <span class="testi-role mint">EDUCATION VOLUNTEER</span>
+                </div>
+              </div>
+              <p class="testi-quote">
+                "VolunteerConnect matched me with a perfect tutoring
+                opportunity. I've taught 40+ kids in just 3 months!"
+              </p>
+              <span class="badge mint">⏰ 120 hrs</span>
+            </div>
+            <div class="testi-card">
+              <div class="testi-top">
+                <div class="avatar lime-av">RM</div>
+                <div>
+                  <p class="testi-name">Rahul Mehta</p>
+                  <span class="testi-role lime">ENVIRONMENT CHAMPION</span>
+                </div>
+              </div>
+              <p class="testi-quote">
+                "The impact dashboard keeps me motivated. Seeing my trees
+                planted counter grow is incredible."
+              </p>
+              <span class="badge lime">⏰ 85 hrs</span>
+            </div>
+            <div class="testi-card">
+              <div class="testi-top">
+                <div class="avatar amber-av">AI</div>
+                <div>
+                  <p class="testi-name">Ananya Iyer</p>
+                  <span class="testi-role amber">HEALTHCARE VOLUNTEER</span>
+                </div>
+              </div>
+              <p class="testi-quote">
+                "The coordinator tools saved us hours every week. Our team grew
+                from 12 to 85 volunteers."
+              </p>
+              <span class="badge amber">⏰ 200 hrs</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ABOUT PAGE -->
+      <div id="page-about" class="page">
+        <div class="page-body">
+          <div class="about-hero">
+            <h2>
+              Built for <span class="highlight">Impact</span>,<br />Designed for
+              <span class="highlight2">Scale</span>
+            </h2>
+            <p class="about-quote">
+              "We believe every person has the power to change lives.
+              VolunteerConnect removes the friction between willing hearts and
+              meaningful action."
+            </p>
+          </div>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="val-icon">🎯</div>
+              <h3>Smart Matching</h3>
+              <p>
+                AI-powered system connects volunteers to the most relevant
+                opportunities
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="val-icon">📊</div>
+              <h3>Measurable Impact</h3>
+              <p>
+                Every hour and action tracked and visualized in real-time
+                dashboards
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="val-icon">🔐</div>
+              <h3>Verified Network</h3>
+              <p>
+                All NGOs and volunteers go through a thorough verification
+                process
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="val-icon">🌍</div>
+              <h3>Community First</h3>
+              <p>
+                Built around a thriving community of changemakers across India
+              </p>
+            </div>
+          </div>
+          <h3 class="section-title center">The Team</h3>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="avatar mint-av large-avatar">MN</div>
+              <p class="team-name">Meera Nair</p>
+              <span class="team-role mint">FOUNDER & CEO</span>
+            </div>
+            <div class="team-card">
+              <div class="avatar amber-av large-avatar">AK</div>
+              <p class="team-name">Arjun Kapoor</p>
+              <span class="team-role amber">TECH LEAD</span>
+            </div>
+            <div class="team-card">
+              <div class="avatar coral-av large-avatar">DR</div>
+              <p class="team-name">Divya Reddy</p>
+              <span class="team-role coral">COMMUNITY DIRECTOR</span>
+            </div>
+            <div class="team-card">
+              <div class="avatar sky-av large-avatar">SP</div>
+              <p class="team-name">Sanjay Patel</p>
+              <span class="team-role sky">NGO RELATIONS</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SIGNUP PAGE -->
+      <div id="page-signup" class="page">
+        <div class="signup-wrap" id="signupWrap">
+          <!-- Steps indicator -->
+          <div class="step-indicator">
+            <div class="step-dot active" id="sdot1">1</div>
+            <div class="step-line" id="sline1"></div>
+            <div class="step-dot" id="sdot2">2</div>
+            <div class="step-line" id="sline2"></div>
+            <div class="step-dot" id="sdot3">3</div>
+          </div>
+
+          <!-- Step 1 -->
+          <div class="signup-step active" id="step1">
+            <h2>Create Your Profile</h2>
+            <p class="signup-desc">Let's get to know you first</p>
+            <label>FULL NAME</label>
+            <input type="text" id="su-name" placeholder="Raj Kumar" />
+            <label>EMAIL ADDRESS</label>
+            <input type="email" id="su-email" placeholder="raj@example.com" />
+            <label>CITY</label>
+            <input type="text" id="su-city" placeholder="Pune, Maharashtra" />
+          </div>
+
+          <!-- Step 2 -->
+          <div class="signup-step" id="step2">
+            <h2>Your Causes</h2>
+            <p class="signup-desc">What causes are you passionate about?</p>
+            <div class="choice-pills" id="causePills">
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Environment
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Education
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Healthcare
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Social Welfare
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Animal Rights
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Disaster Relief
+              </button>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="signup-step" id="step3">
+            <h2>Your Skills</h2>
+            <p class="signup-desc">What can you bring to the table?</p>
+            <div class="choice-pills" id="skillPills">
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Teaching
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Coding
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Cooking
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Medical
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Logistics
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Fundraising
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Photography
+              </button>
+              <button class="choice-pill" onclick="toggleChoice(this)">
+                Language
+              </button>
+            </div>
+          </div>
+
+          <div class="signup-nav">
+            <button
+              class="btn-ghost"
+              id="backBtn"
+              onclick="signupBack()"
+              style="display: none"
+            >
+              ← Back
+            </button>
+            <button class="btn-primary" id="nextBtn" onclick="signupNext()">
+              Continue →
+            </button>
+          </div>
+        </div>
+
+        <!-- Success -->
+        <div class="signup-success" id="signupSuccess" style="display: none">
+          <div>🌿</div>
+          <h2>Welcome Aboard!</h2>
+          <p>
+            You're now part of 12,400+ changemakers. We'll match you with the
+            perfect opportunity within 24 hours.
+          </p>
+          <button class="btn-primary" onclick="showPage('opportunities')">
+            Browse Opportunities →
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+      <div class="footer-inner">
+        <div class="footer-brand">
+          <div class="logo">
+            <div class="logo-icon">🌿</div>
+            <span>VolunteerConnect</span>
+          </div>
+          <p>
+            India's leading platform connecting passionate volunteers with
+            organizations creating real change.
+          </p>
+        </div>
+        <div class="footer-links">
+          <div>
+            <p class="footer-title">PLATFORM</p>
+            <a onclick="showPage('opportunities')">Opportunities</a
+            ><a onclick="showPage('dashboard')">Dashboard</a
+            ><a onclick="showPage('community')">Community</a>
+          </div>
+          <div>
+            <p class="footer-title">COMPANY</p>
+            <a onclick="showPage('about')">About</a><a>Blog</a><a>Careers</a>
+          </div>
+          <div>
+            <p class="footer-title">SUPPORT</p>
+            <a>FAQ</a><a>Contact</a><a>Privacy</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2026 VolunteerConnect · Made with 🌿 for India</p>
+        <div class="social-links">
+          <a>Twitter</a><a>LinkedIn</a><a>Instagram</a>
+        </div>
+      </div>
+    </footer>
+
+    <!-- BOTTOM NAV (mobile) -->
+    <div class="bottom-nav">
+      <button onclick="showPage('home')">
+        <span>🏠</span><span>Home</span>
+      </button>
+      <button onclick="showPage('opportunities')">
+        <span>🔍</span><span>Explore</span>
+      </button>
+      <button onclick="showPage('dashboard')">
+        <span>📊</span><span>Dashboard</span>
+      </button>
+      <button onclick="showPage('community')">
+        <span>👥</span><span>Community</span>
+      </button>
+      <button onclick="showPage('signup')">
+        <span>✨</span><span>Join</span>
+      </button>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
